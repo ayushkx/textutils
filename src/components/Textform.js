@@ -1,5 +1,4 @@
 import React , {useState} from 'react'
-import PropTypes from 'prop-types'
 
 export default function Textform(props) {
     const [text , setText] = useState('') ;
@@ -8,23 +7,27 @@ export default function Textform(props) {
            console.log("uppercase is clicked");
            let newText = text.toUpperCase();
            setText(newText);
+           props.showAlert('Success !! text has been changed to uppercase . ')
      };
 
     const handleLoClick = () => {
         console.log("Lowercase is clicked");
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert('Success !! text has been changed to lowercase . ')
      };
 
      const handleRev = () => {
           let newText = text.split(' ').reverse().join(' ');
           setText(newText);
+          props.showAlert('Success !! text has been reversed . ')
      };
     
      const handleShuffle = () => {
 
         let newText = text.split(' ').sort( ()=>Math.random()-0.5 ).join(' ');
         setText(newText);
+        props.showAlert('Success !! text has been shuffled . ')
 
      };
 
